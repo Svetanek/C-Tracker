@@ -6,7 +6,7 @@ import {
   Select
 
 } from "@material-ui/core";
-
+import InfoBox from "./InfoBox";
 import './App.css';
 
 function App() {
@@ -63,6 +63,16 @@ setCountry(countryCode)
         </Select>
       </FormControl>
       </div>
+      <div className="app__stats">
+        <InfoBox title="Coronovirus Cases" cases="123" total="2000"/>
+        <InfoBox title="Recovered" cases="123"  total="2000"/>
+        <InfoBox title="Deaths" cases="0"  total="0"/>
+
+      </div>
+
+
+
+      {/*Map*/}
     </div>
   );
 }
