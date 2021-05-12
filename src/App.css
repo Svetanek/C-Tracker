@@ -29,9 +29,6 @@ body {
   display: flex;
   justify-content: space-between;
 }
-/* .app__graph {
-  height: 80px;
-} */
 
 @media (max-width: 900px) {
   .app {

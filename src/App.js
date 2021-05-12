@@ -10,8 +10,9 @@ import InfoBox from "./InfoBox";
 import Map from './Map'
 import Table from './Table'
 import LineGraph from './LineGraph'
-import {sortData} from './utils'
+import {sortData} from './utils';
 import './App.css';
+import 'leaflet/dist/leaflet.css'
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -19,6 +20,8 @@ function App() {
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
   const [casesType, setCasesType] = useState("cases");
+  const [mapCenter, setMapCenter] = useState({ lat: 34.80746, lng: -40.4796 });
+  const [mapZoom, setMapZoom] = useState(3);
 
   useEffect( () => {
     const fetchData = async () => {
@@ -81,6 +84,14 @@ countryCode === "worldwide"
   const {data} = await axios.get(url)
   setCountry(countryCode);
   setCountryInfo(data);
+  console.log("INFO", countryInfo)
+  if (countryCode !== 'worldwide') {
+    setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+}
+else {
+    setMapCenter([34.80, -40.47]);
+}
+setMapZoom(4);
 
   // await fetch(url)
   // .then((response) => response.json())
@@ -110,7 +121,7 @@ countryCode === "worldwide"
         <InfoBox title="Recovered" cases={countryInfo.todayRecovered}  total={countryInfo.recovered}/>
         <InfoBox title="Deaths" cases={countryInfo.todayDeaths}   total={countryInfo.deaths}/>
       </div>
-      <Map/>
+      <Map center={mapCenter} zoom={mapZoom}/>
       </div>
       <Card className="app__right">
         <CardContent>
