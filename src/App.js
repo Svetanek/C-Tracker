@@ -9,6 +9,7 @@ import {
 import InfoBox from "./InfoBox";
 import Map from './Map'
 import Table from './Table'
+import LineGraph from './LineGraph'
 import {sortData} from './utils'
 import './App.css';
 
@@ -17,6 +18,7 @@ function App() {
   const [country, setCountry] = useState("worldwide");
   const [countryInfo, setCountryInfo] = useState({});
   const [tableData, setTableData] = useState([]);
+  const [casesType, setCasesType] = useState("cases");
 
   useEffect( () => {
     const fetchData = async () => {
@@ -115,6 +117,7 @@ countryCode === "worldwide"
           <h3>Live Cases by Country</h3>
           <Table countries={tableData}/>
           <h3>Worldwide new cases</h3>
+          <LineGraph className="app__graph" casesType={casesType}/>
         </CardContent>
          </Card>
 
