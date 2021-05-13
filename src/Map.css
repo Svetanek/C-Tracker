@@ -14,6 +14,36 @@
 }
 
 .info-flag img {
+  width: 6.25rem;
+  border-radius: 5px;
+}
+.info-flag {
+  height: 5rem;
+  width: 100%;
+  background-size: cover;
+  border-radius: 8px;
+}
+
+.info-name {
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* .info-container {
+  width: 9.735rem;
+  padding: 5px;
+  background-color: #f5f6fa;
+}
+
+.info-confirmed,
+.info-recovered,
+.info-deaths {
+  font-size: 16px;
+  margin-top: 5px;
+} */
+
+.info-flag img {
   width: 100px;
   border-radius: 5px;
 }
@@ -26,6 +56,8 @@
 
 .info-container {
   width: 150px;
+  background-color: #f5f6fa;
+  padding: 3px;
 }
 
 .info-flag {
@@ -33,6 +65,7 @@
   width: 100%;
   background-size: cover;
   border-radius: 8px;
+  background-position: center;
 }
 
 .info-confirmed,
