@@ -35,13 +35,7 @@
   padding: 5px;
   background-color: #f5f6fa;
 }
-
-.info-confirmed,
-.info-recovered,
-.info-deaths {
-  font-size: 16px;
-  margin-top: 5px;
-} */
+ */
 
 .info-flag img {
   width: 100px;
@@ -55,7 +49,7 @@
 }
 
 .info-container {
-  width: 150px;
+  width: 9.375rem;
   background-color: #f5f6fa;
   padding: 3px;
 }

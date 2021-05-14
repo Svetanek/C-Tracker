@@ -123,9 +123,9 @@ else {
       </FormControl>
       </div>
       <div className="app__stats">
-        <InfoBox title="Coronovirus Cases" cases={prettyPrintStat(countryInfo.todayCases)} total={countryInfo.cases}/>
-        <InfoBox title="Recovered" cases={prettyPrintStat(countryInfo.todayRecovered)}  total={countryInfo.recovered}/>
-        <InfoBox title="Deaths" cases={prettyPrintStat(countryInfo.todayDeaths)}   total={countryInfo.deaths}/>
+        <InfoBox isRed={casesType === "cases"} title="Coronovirus Cases" cases={prettyPrintStat(countryInfo.todayCases)} total={countryInfo.cases} onClick={() => setCasesType("cases")}/>
+        <InfoBox isGreen={casesType === "recovered"} title="Recovered" cases={prettyPrintStat(countryInfo.todayRecovered)}  total={countryInfo.recovered} onClick={() => setCasesType("recovered")}/>
+        <InfoBox isPurple={casesType === "deaths"} title="Deaths" cases={prettyPrintStat(countryInfo.todayDeaths)}   total={countryInfo.deaths} onClick={() => setCasesType("deaths")}/>
       </div>
       <Map center={mapCenter} zoom={mapZoom} countries={mapCountries} casesType={casesType}/>
       </div>
@@ -133,8 +133,10 @@ else {
         <CardContent>
           <h3>Live Cases by Country</h3>
           <Table countries={tableData}/>
-          <h3>Worldwide new cases</h3>
+          <div className="app__graphContainer">
+          <h3>Worldwide new {casesType}</h3>
           <LineGraph className="app__graph" casesType={casesType}/>
+          </div>
         </CardContent>
          </Card>
 

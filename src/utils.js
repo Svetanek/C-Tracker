@@ -36,7 +36,7 @@ const casesTypeColors = {
 
   deaths: {
     hex: "#761CD6",
-    // rgb: "rgb(251,68,67)",
+    // rgb: "rgb(118, 28, 214, 1)",
     // half_op: "rgba(251,68,67,0.5)",
     mulitiplier: 800,
   },

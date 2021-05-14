@@ -65,32 +65,65 @@ const buildChartData = (data, casesType = "cases") => {
   }
  return chartData
 }
+// const setColor = casesTypes => {
+//   let color = {
+//     rgba: "rgba(204, 16, 52, 0.5)",
+//     hex: "#CC1034"
+//   }
+//   if(casesTypes === "recovered") {
+//   color.rgba = "rgba(125, 215, 29, 0.5)"
+//   color.hex = "#7DD71D"
+//   }
+
+//   if(casesTypes === "recovered") {
+//     color.rgba = "rgba(118, 28, 214, 0.5)"
+//     color.hex = "#761CD6"
+//     }
+//     return color;
+// }
 
 
 function LineGraph({casesType, ...props}) {
   const [data, setData] = useState({});
+  const [backgroundColor, setBackgroundColor] = useState("rgba(204, 16, 52, 0.5)")
+  const [borderColor, setBorderColor] = useState("#CC1034")
+
+
 
   useEffect(() => {
     const fetchData = async () => {
       const {data} = await axios.get("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
       console.log(data);
       let chartData = buildChartData(data, casesType);
-      setData(chartData)
+      setData(chartData);
+      if(casesType === "cases") {
+        setBackgroundColor("rgba(204, 16, 52, 0.5)");
+        setBorderColor("#CC1034")
+        }
+      if(casesType === "recovered") {
+        setBackgroundColor("rgba(125, 215, 29, 0.5)");
+        setBorderColor("#7DD71D")
+        }
+        if(casesType === "deaths") {
+          setBackgroundColor("rgba(118, 28, 214, 0.5)");
+          setBorderColor("#761CD6")
+          }
 
     }
+
 
     fetchData()
   }, [casesType])
 
 
   return (
-    <div>
+    <div className={props.className}>
      {data.length? <Line
   data={{
     datasets: [
       {
-        backgroundColor: "rgba(204, 16, 52, 0.5)",
-        borderColor: "#CC1034",
+        backgroundColor: backgroundColor,
+        borderColor: borderColor,
         data: data
       }
     ],
