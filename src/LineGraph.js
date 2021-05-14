@@ -65,22 +65,6 @@ const buildChartData = (data, casesType = "cases") => {
   }
  return chartData
 }
-// const setColor = casesTypes => {
-//   let color = {
-//     rgba: "rgba(204, 16, 52, 0.5)",
-//     hex: "#CC1034"
-//   }
-//   if(casesTypes === "recovered") {
-//   color.rgba = "rgba(125, 215, 29, 0.5)"
-//   color.hex = "#7DD71D"
-//   }
-
-//   if(casesTypes === "recovered") {
-//     color.rgba = "rgba(118, 28, 214, 0.5)"
-//     color.hex = "#761CD6"
-//     }
-//     return color;
-// }
 
 
 function LineGraph({casesType, ...props}) {
@@ -108,9 +92,7 @@ function LineGraph({casesType, ...props}) {
           setBackgroundColor("rgba(118, 28, 214, 0.5)");
           setBorderColor("#761CD6")
           }
-
     }
-
 
     fetchData()
   }, [casesType])
