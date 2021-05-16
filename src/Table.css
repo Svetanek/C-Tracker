@@ -1,3 +1,5 @@
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css');
+
 .table {
   margin-top: 1.25rem;
   overflow: scroll;
@@ -15,4 +17,16 @@
 
 .table tr:nth-of-type(odd) {
   background-color: #f3f2f8;
+}
+
+.spinner {
+  display: block;
+  margin: 0 auto;
+  color: rgb(163, 209, 225);
+}
+@media only screen and (max-width: 960px) {
+  .table > table {
+    width: 100%;
+    /* padding: 0 5rem; */
+  }
 }

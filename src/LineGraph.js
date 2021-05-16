@@ -27,7 +27,7 @@ const options = {
       {
         type: "time",
         time: {
-          format: "MM/DD/YY",
+          parser: "MM/DD/YY",
           tooltipFormat: "ll",
         },
       },
@@ -77,7 +77,6 @@ function LineGraph({casesType, ...props}) {
   useEffect(() => {
     const fetchData = async () => {
       const {data} = await axios.get("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
-      console.log(data);
       let chartData = buildChartData(data, casesType);
       setData(chartData);
       if(casesType === "cases") {

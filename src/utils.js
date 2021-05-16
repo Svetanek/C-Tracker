@@ -42,10 +42,19 @@ const casesTypeColors = {
   },
 };
 
+
 export const sortData = (data) => {
   const sortedData = [...data];
 
   sortedData.sort((a, b) => b.cases - a.cases);
+
+  return sortedData;
+};
+
+export const sortDataByDeathsPerMil = (data) => {
+  const sortedData = [...data];
+
+  sortedData.sort((a, b) => b.deathsPerOneMillion - a.deathsPerOneMillion);
 
   return sortedData;
 };
@@ -55,8 +64,9 @@ export const prettyPrintStat = (stat) =>
 
 //Draw circles on the map
 export const showDataOnMap = (data, casesType) =>
-  data.map((country) => (
+  data.map((country, i) => (
     <Circle
+      key={i}
       center={[country.countryInfo.lat, country.countryInfo.long]}
       fillOpacity={0.4}
       color={casesTypeColors[casesType].hex}
