@@ -4,7 +4,7 @@
   background-color: white;
   padding: 1rem;
   border-radius: 20px;
-  margin-top: 30px;
+  margin-top: 1.5rem;
   box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.5);
 }
 /* by initializing map the leaflet container div is set by default */
